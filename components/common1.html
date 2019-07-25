@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/template.js"></script>
+</head>
+<body>
+
+<h1>---当前页模板渲染方式----</h1>
+
+<div id="loadHtml1"></div>
+
+<script type="text/html" id="template_test">
+    <div>
+        <ul>
+            {{each obj as item index}}
+            <li>
+                <lable>{{item.name}}</lable>
+                <span>{{item.age}}</span>
+                {{if item.state}}
+                <i>{{item.state}}</i>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+</body>
+
+<script>
+
+    let obj = [
+        {
+            name: '张三',
+            age: 18,
+            state: "一些"
+        },
+        {
+            name: '张三',
+            age: 18,
+            state: "没有"
+        },
+        {
+            name: '张三',
+            age: 18,
+            state: "更多"
+        }
+    ]
+    document.getElementById('loadHtml1').innerHTML = template("template_test",{'obj': obj})
+</script>
+</html>
